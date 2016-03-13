@@ -16,11 +16,16 @@
           </div>
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="statuses/filter">Tweets</a></li>
+            {% if profile %}
+            <li><a href="/tweets">Tweets</a></li>
+            {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/auth/twitter"><span class="glyphicon glyphicon-log-in"></span> Twitter Login</a></li>
+            {% if profile %}
             <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            {% else %}
+            <li><a href="/auth/twitter"><span class="glyphicon glyphicon-log-in"></span> Twitter Login</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>

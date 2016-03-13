@@ -25,5 +25,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
 });
 
+router.get('/tweets', function(req, res, next) {
+  res.render('tweets', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
+});
+
 
 module.exports = router;
