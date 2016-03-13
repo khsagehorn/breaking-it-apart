@@ -4,7 +4,7 @@
 
 
 {% block content %}
-<meta http-equiv="refresh" content="10">
+<!-- <meta http-equiv="refresh" content="10"> -->
 
   <div class="container">
 
@@ -25,11 +25,13 @@
       <input type="text" required maxlength="40" name="twit"></input><br>
     <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
   </form>
- {% for tweet in tweets %}
-  <div class="tweetbox">
-    <h3>{{tweet}}</h3>
+  <div id="test">
+   <!-- {% for tweet in tweets %}
+    <div class="tweetbox">
+      <h3>{{tweet}}</h3>
+    </div>
+  {% endfor %} -->
   </div>
-{% endfor %}
  </div>
 
 {% endblock %}

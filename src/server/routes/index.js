@@ -41,6 +41,10 @@ router.post('/charts', function(req, res, next) {
   res.redirect('/charts')
 });
 
+router.get('/tweetsjson', function(req, res, next) {
+  res.json({tweets: tweets});
+})
+
 function restart (hashtag) {
   client.currentstream.destroy();
   tweets = [];
