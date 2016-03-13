@@ -24,7 +24,11 @@
      </div>
    </div>
  {% endif %}
-  <h3>{{tweet}}</h3>
+ {% for tweet in tweets %}
+  <div class="tweetbox">
+    <h3>{{tweet}}</h3>
+  </div>
+{% endfor %}
  </div>
 
 {% endblock %}

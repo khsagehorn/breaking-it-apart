@@ -7,21 +7,22 @@ var client = new Twitter({
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
-// var count = 0;
-// var util = require('util');
+var tweets = []
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Twitter & Passport', profile: req.user })
-});
 
 client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
   stream.on('data', function(tweet) {
     console.log(tweet.text);
+    tweets.push(tweet.text);
   });
 
   stream.on('error', function(error) {
     throw error;
   });
+});
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
 });
 
 

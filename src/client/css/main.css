@@ -29,3 +29,8 @@ header{
     color: #fff !important;
     background-color:#29292c !important;
 }
+
+.tweetbox {
+  margin: 10px;
+  border: black 1px solid;
+}
