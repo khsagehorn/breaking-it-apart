@@ -8,6 +8,7 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 var tweets = []
+var twit = 'javascript';
 
 
 client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
@@ -19,6 +20,7 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
   stream.on('error', function(error) {
     throw error;
   });
+  client.currentstream = stream;
 });
 
 router.get('/', function(req, res, next) {
@@ -28,6 +30,32 @@ router.get('/', function(req, res, next) {
 router.get('/tweets', function(req, res, next) {
   res.render('tweets', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
 });
+
+router.get('/charts', function(req, res, next) {
+  res.render('charts', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
+});
+
+router.post('/charts', function(req, res, next) {
+  twit = req.body.twit;
+  restart(twit);
+  res.redirect('/charts')
+});
+
+function restart (hashtag) {
+  client.currentstream.destroy();
+  tweets = [];
+  client.stream('statuses/filter', {track: hashtag}, function(stream) {
+    stream.on('data', function(tweet) {
+      console.log(tweet.text);
+      tweets.push(tweet.text);
+    });
+
+    stream.on('error', function(error) {
+      throw error;
+    });
+    client.currentstream = stream;
+  });
+}
 
 
 module.exports = router;
