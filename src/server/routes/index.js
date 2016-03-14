@@ -24,11 +24,11 @@ console.log(tweet2);
 var stream = twit.streamChannels({track: channels});
 stream.on('channels/stream1', function(tweet){
   tweets1.push(tweet.text);
-  // console.log(tweet.text);
+  console.log(tweet.text);
 })
 stream.on('channels/stream2', function(tweet){
   tweets2.push(tweet.text);
-  // console.log(tweet.text);
+  console.log(tweet.text);
 })
 
 // client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
@@ -56,31 +56,36 @@ router.get('/charts', function(req, res, next) {
 });
 
 router.post('/charts', function(req, res, next) {
-  // tweet = req.body.twit;
-  // tweet2 = req.body.twit2
-  // restart(tweet);
-  // restart2(twit2)
+  tweet = req.body.twit;
+  tweet2 = req.body.twit2
+  restart(tweet, tweet2);
   res.redirect('/charts')
 });
 
 router.get('/tweetsjson', function(req, res, next) {
-  res.json({tweets: tweets});
+  res.json({tweets: tweets1, twitters: tweets2});
 })
 
-router.get('/tweetsjson2', function(req, res, next) {
-  res.json({twits: twits});
-})
+// router.get('/tweetsjson2', function(req, res, next) {
+//   res.json({twitters: tweets2});
+// })
 
-function restart(hashtag) {
-  client.currentstream.destroy();
+function restart(hashtag, hashtag2) {
+  setTimeout(function(){
+    stream.stop();//closes the stream connected to Twitter
+  	console.log('>stream closed after 100 seconds');
+  },100000);
+  tweets1 = [];
+  tweets2 = [];
   var stream = twit.streamChannels({track: channels});
   stream.on('channels/stream1', function(tweet){
-    arr1.push(tweet);
-    console.log(arr1.length);
+    tweets1.push(tweet.text);
+    console.log(tweet.text);
+
   })
   stream.on('channels/stream2', function(tweet){
-    arr2.push(tweet);
-    console.log(arr2.length);
+    tweets2.push(tweet.text);
+    console.log(tweet.text);
   })
 }
 
