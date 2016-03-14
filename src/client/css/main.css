@@ -1,11 +1,32 @@
-header{
-    background: url("https://s-media-cache-ak0.pinimg.com/736x/14/5c/72/145c7257bd31a6b456991cd0147a029f.jpg");
+.indexheader{
+    background: url("https://amandeepmittal.files.wordpress.com/2012/08/mur6m.png");
     background-size: cover;
     margin: 0;
     padding: 0;
-    height: 700px;
+    height: 600px;
     width: 100%;
     background-attachment: fixed;
+    font-family: silkscreen;
+    /*padding-top: -200px;*/
+}
+
+.chartsheader{
+    background: url("http://www.imgbase.info/images/safe-wallpapers/miscellaneous/8_bit/6972_8_bit_8-bit.jpg");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 600px;
+    width: 100%;
+    background-attachment: fixed;
+    font-family: silkscreen;
+    padding-top: -200px;
+}
+
+.headertext {
+  padding-top: 80px;
+  text-align: center;
+  color: white;
+  font-size: 60px;
 }
 
 .navbar {
@@ -15,6 +36,7 @@ header{
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    font-family: silkscreen;
 }
 
 .navbar li a, .navbar .navbar-brand {

@@ -24,7 +24,7 @@ client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Twitter & Passport', profile: req.user, tweets: tweets })
+  res.render('index', { title: 'Break It Apart!!', profile: req.user, tweets: tweets })
 });
 
 router.get('/tweets', function(req, res, next) {
