@@ -4,7 +4,6 @@
 
 
 {% block content %}
-<!-- <meta http-equiv="refresh" content="10"> -->
 <header class="chartsheader"></header>
 
   <div class="container">
@@ -13,18 +12,30 @@
    <hr>
    <div class="row">
      <div class="col-xs-4">
-       <img style="float: right;" src="{{ profile.avatar_url }}" alt="{{ profile.displayName }}">
+       <img style="float: right;" src="{{ profile.avatar_url }}" alt="{{ profile.display_name }}">
      </div>
 
      <div class="col-xs-8">
-       <h3>{{ profile.display_name }}</h3>
+       <h3>Welcome {{ profile.display_name }}</h3>
      </div>
    </div>
  {% endif %}
+
  <form method="post">
-   <label for="text">Name: </label>
-      <input type="text" required maxlength="40" name="twit"></input><br>
-    <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
+   <div class="row">
+     <div class="col-xs-4">
+        <input type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
+      </div>
+      <div class="col-xs-2">
+        <p style="text-align: center;">VS.</p>
+      </div>
+      <div class="col-xs-4">
+        <input type="text" class="form-control" name="#" placeholder="Enter In Hashtag">
+      </div>
+      <div class="col-xs-2">
+        <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
+      </div>
+    </div>
   </form>
   <div id="test">
    <!-- {% for tweet in tweets %}
