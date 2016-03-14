@@ -56,8 +56,8 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // above your routes
 passport.use(new TwitterStrategy({
-  consumerKey: process.env.TWITTER_API_KEY,
-  consumerSecret: process.env.TWITTER_SECRET_KEY,
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL: "http://localhost:3000/auth/twitter/callback",
   state: true
 }, function(accessToken, refreshToken, profile, done) {
