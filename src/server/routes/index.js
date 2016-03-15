@@ -55,7 +55,7 @@ router.post('/charts', function(req, res, next) {
 
 router.get('/stoptweets', function(req, res, next){
   stopTweets();
-  res.redirect('/charts')
+  // res.redirect('/charts')
 })
 
 router.get('/tweetsjson', function(req, res, next) {
