@@ -49,14 +49,11 @@ router.get('/charts', function(req, res, next) {
 router.post('/charts', function(req, res, next) {
   tweet = req.body.twit;
   tweet2 = req.body.twit2
-  console.log(tweet);
-  console.log(tweet2);
   restart(tweet, tweet2);
   res.redirect('/charts')
 });
 
 router.get('/stoptweets', function(req, res, next){
-  // process.exit();
   stopTweets();
   res.redirect('/charts')
 })
@@ -97,7 +94,6 @@ function restart(hashtag, hashtag2) {
 function stopTweets() {
     stream.stop();//closes the stream connected to Twitter
   	console.log('>stream closed after 100 seconds');
-
 }
 
 

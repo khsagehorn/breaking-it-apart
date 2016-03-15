@@ -24,11 +24,21 @@
      </div>
    </div>
  {% endif %}
- <!-- {% for tweet in tweets1 %}
-  <div class="tweetbox">
-    <h3>{{tweet}}</h3>
-  </div>
-{% endfor %} -->
+ <!-- <div id="examplegraph"></div> -->
+ <section>
+    <p style="font-size: 40px;">Graph Out You Competition With {{ title }}</p>
+
+      <div class="col-xs-4">
+        <div id="examplegraph" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto"></div>
+      </div>
+      <div class="col-xs-4">
+        <img src="http://www.selflovebliss.com/images/twitter.gif" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto">
+      </div>
+      <div class="col-xs-4">
+        <div id="examplegraph2" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto"></div>
+      </div>
+
+  </section>
  </div>
 
 {% endblock %}
