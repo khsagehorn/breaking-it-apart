@@ -20,24 +20,24 @@
      </div>
    </div>
  {% endif %}
+<section>
+   <form method="post">
+     <div class="row">
+       <div class="col-xs-4">
+          <input type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
+        </div>
+        <div class="col-xs-4">
+          <p style="text-align: center;">VS.</p>
+        </div>
+        <div class="col-xs-4">
+          <input type="text" class="form-control" name="twit2" placeholder="Enter In Hashtag">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
+      <a href="/stopTweets" class="btn btn-danger" id="stop_tweet">Stop Tweet Stream</a>
+    </form>
+</section>
 
- <form method="post">
-   <div class="row">
-     <div class="col-xs-4">
-        <input type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
-      </div>
-      <div class="col-xs-2">
-        <p style="text-align: center;">VS.</p>
-      </div>
-      <div class="col-xs-4">
-        <input type="text" class="form-control" name="twit2" placeholder="Enter In Hashtag">
-      </div>
-      <div class="col-xs-2">
-        <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
-      </div>
-    </div>
-  </form>
-  <a href="/stopTweets" class="btn btn-danger" id="stop_tweet">Stop Tweet Stream</a>
   <div id="test" class="col-xs-6">
    <!-- {% for tweet in tweets %}
     <div class="tweetbox">
