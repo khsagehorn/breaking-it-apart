@@ -23,7 +23,7 @@ function getTweets(){
     $('#test').html('');
     $('#test2').html('');
     console.log(tweets, twitters);
-    tweetGraph()
+    tweetGraph();
     // for (var i=0; i<tweets.length; i++) {
     //   $('#test').append('<div class="tweetbox"><h3>'+tweets[i]+'</h3></div>');
     // }
@@ -69,6 +69,9 @@ function tweetGraph(){
               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
           },
           plotOptions: {
+            series: {
+              animation: false
+            },
               pie: {
                   dataLabels: {
                       enabled: true,
@@ -104,60 +107,3 @@ function tweetGraph(){
       });
     });
   };
-
-  function tweetGraph2(){
-    $(function () {
-        $('#examplegraph2').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: 0,
-                plotShadow: false
-            },
-            title: {
-                text: 'Javascript<br>VS.<br>Python',
-                align: 'center',
-                verticalAlign: 'middle',
-                y: 40
-            },
-            credits: {
-              enabled: false
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: true,
-                        distance: -40,
-                        style: {
-                            fontWeight: 'bold',
-                            color: 'white',
-                            textShadow: '0px 1px 2px black'
-                        }
-                    },
-                    startAngle: -90,
-                    endAngle: 90,
-                    center: ['50%', '75%']
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Javascript vs. Python',
-                innerSize: '50%',
-                data: [
-                    ['Javascript',   70.0],
-                    ['Python',  30.0],
-
-                    {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        dataLabels: {
-                            enabled: false
-                        }
-                    }
-                ]
-            }]
-        });
-      });
-    };
