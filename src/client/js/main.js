@@ -3,9 +3,6 @@
 $(document).on('ready', function() {
   console.log('sanity check!');
   setInterval(getTweets, 2000);
-  // getTweets();
-  // tweetGraph();
-
   var tweets;
   var twitters;
 });
@@ -32,21 +29,6 @@ function getTweets(){
     // }
   });
 };
-
-// function tweetGraph3(){
-//   $(function () {
-//       $('#test').highcharts({
-//
-//           chart: {
-//               type: 'pie'
-//           },
-//
-//           series: [{
-//               data: [29.9, 71.5, 106.4]
-//           }]
-//       });
-//     })
-//   };
 
 function tweetGraph(){
   $(function () {
