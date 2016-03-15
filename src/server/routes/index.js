@@ -21,13 +21,6 @@ var tweet2 = channels.stream2;
 console.log(tweet);
 console.log(tweet2);
 var stream;
-// var stream = twit.streamChannels({track: channels});
-//   stream.on('channels/stream1', function(tweet){
-//     tweets1.push(tweet.text);
-//   })
-//   stream.on('channels/stream2', function(tweet){
-//     tweets2.push(tweet.text);
-//   })
 
 // client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
 //   stream.on('data', function(tweet) {
@@ -102,7 +95,6 @@ function restart(hashtag, hashtag2) {
 }
 
 function stopTweets() {
-    // var stream = twit.streamChannels({track: channels});
     stream.stop();//closes the stream connected to Twitter
   	console.log('>stream closed after 100 seconds');
 
