@@ -2,9 +2,33 @@
 
 $(document).on('ready', function() {
   console.log('sanity check!');
-  setInterval(getTweets, 2000);
-  var tweets;
-  var twitters;
+  setInterval(getTweets, 2000);;
+  // tweetGraph(0,0);
+  // $('#submit_form').on('click', function(e){
+  //   e.preventDefault();
+  //   tweetInterval = setInterval(getTweets, 2000);
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/charts',
+  //     data: {
+  //       twit: $('#twit').val(),
+  //       twit2: $('#twit2').val()
+  //     }
+  //   })
+  // });
+
+  // $('#stop_tweet').on('click', function(e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //     method: 'GET',
+  //     url: '/stoptweets'
+  //   }).done(function(response){
+  //     console.log('stopped tweets', response);
+  //     clearInterval(tweetInterval);
+  //   }).fail(function(err){
+  //     console.log('stop error?', err);
+  //   });
+  // });
 });
 
 
@@ -15,12 +39,12 @@ function getTweets(){
     url: '/tweetsjson'
   }).then(function(response) {
     console.log(response);
-    tweets = response.tweets.length;
-    twitters = response.twitters.length;
+    var tweets = response.tweets.length;
+    var twitters = response.twitters.length;
     $('#test').html('');
     $('#test2').html('');
     console.log(tweets, twitters);
-    tweetGraph();
+    tweetGraph(tweets, twitters);
     // for (var i=0; i<tweets.length; i++) {
     //   $('#test').append('<div class="tweetbox"><h3>'+tweets[i]+'</h3></div>');
     // }
@@ -30,7 +54,7 @@ function getTweets(){
   });
 };
 
-function tweetGraph(){
+function tweetGraph(tweets, twitters){
   $(function () {
       $('#examplegraph').highcharts({
           chart: {
