@@ -23,11 +23,11 @@ console.log(tweet2);
 var stream;
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Break It Apart!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
+  res.render('index', { title: 'Smashtag!', profile: req.user, tweets: tweets1, twitters: tweets2 })
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'What The F*@! Is This?', profile: req.user, tweets: tweets1, twitters: tweets2 })
+  res.render('about', { title: 'What The F*!# Is This?', profile: req.user, tweets: tweets1, twitters: tweets2 })
 });
 
 router.get('/savedcharts', function(req, res, next) {
