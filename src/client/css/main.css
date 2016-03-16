@@ -2,6 +2,7 @@ body {
   background-color: grey;
   font-family: silkscreen;
   text-align: center;
+  color: black;
   /*margin: 5px;*/
 }
 
@@ -31,8 +32,6 @@ body {
 
 .headertext {
   padding-top: 80px;
-  text-align: center;
-  color: white;
   font-size: 60px;
 }
 

@@ -27,15 +27,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Break It Apart!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
+  res.render('about', { title: 'What The F*@! Is This?', profile: req.user, tweets: tweets1, twitters: tweets2 })
 });
 
 router.get('/savedcharts', function(req, res, next) {
-  res.render('savedcharts', { title: 'Break It Apart!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
+  res.render('savedcharts', { title: 'Profile', profile: req.user, tweets: tweets1, twitters: tweets2 })
 });
 
 router.get('/charts', function(req, res, next) {
-  res.render('charts', { title: 'Twitter & Passport', profile: req.user, tweets: tweets1, twitters: tweets2 })
+  res.render('charts', { title: 'Get Started!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
 });
 
 router.post('/charts', function(req, res, next) {
