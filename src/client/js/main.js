@@ -2,35 +2,12 @@
 
 $(document).on('ready', function() {
   console.log('sanity check!');
-  setInterval(getTweets, 2000);;
-  // tweetGraph(0,0);
-  // $('#submit_form').on('click', function(e){
-  //   e.preventDefault();
-  //   tweetInterval = setInterval(getTweets, 2000);
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/charts',
-  //     data: {
-  //       twit: $('#twit').val(),
-  //       twit2: $('#twit2').val()
-  //     }
-  //   })
-  // });
-
-  // $('#stop_tweet').on('click', function(e) {
-  //   e.preventDefault();
-  //   $.ajax({
-  //     method: 'GET',
-  //     url: '/stoptweets'
-  //   }).done(function(response){
-  //     console.log('stopped tweets', response);
-  //     clearInterval(tweetInterval);
-  //   }).fail(function(err){
-  //     console.log('stop error?', err);
-  //   });
-  // });
+  window.tweetTimer = setInterval(getTweets, 2000);
 });
 
+function stopTimer(){
+  clearInterval(tweetTimer);
+};
 
 
 function getTweets(){
