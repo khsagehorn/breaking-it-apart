@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var Twitter = require('twitter');
+var multer = require('multer');
+var upload = multer({
+  dest:'./client/uploads'
+});
 var twitterStreamChannels = require('twitter-stream-channels');
 var twit = new twitterStreamChannels({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -8,12 +12,10 @@ var twit = new twitterStreamChannels({
     access_token: process.env.TWITTER_ACCESS_TOKEN,
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
-
 var channels = {
   'stream1': 'javascript',
   'stream2': 'css'
 };
-
 var tweets1 = [];
 var tweets2 = [];
 var tweet = channels.stream1;
@@ -22,17 +24,17 @@ console.log(tweet);
 console.log(tweet2);
 var stream;
 
-// client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
-//   stream.on('data', function(tweet) {
-//     console.log(tweet.text);
-//     tweets1.push(tweet.text);
-//   });
-//
-//   stream.on('error', function(error) {
-//     throw error;
-//   });
-//   client.currentstream = stream;
-// });
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Break It Apart!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
+});
+
+router.post('/upload', upload.single('image'),
+  function(req, res, next) {
+    console.log(req.file);
+    console.log(req.body);
+    res.redirect('/test');
+  }
+);
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Break It Apart!!', profile: req.user, tweets: tweets1, twitters: tweets2 })
@@ -55,7 +57,6 @@ router.post('/charts', function(req, res, next) {
 
 router.get('/stoptweets', function(req, res, next){
   stopTweets();
-  // res.redirect('/charts')
 })
 
 router.get('/tweetsjson', function(req, res, next) {
@@ -92,7 +93,7 @@ function restart(hashtag, hashtag2) {
 }
 
 function stopTweets() {
-    stream.stop();//closes the stream connected to Twitter
+    stream.stop();
   	console.log('>stream closed after 100 seconds');
 }
 
