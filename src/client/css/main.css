@@ -7,16 +7,15 @@ body {
 }
 
 .indexheader{
-    /*background: url("https://amandeepmittal.files.wordpress.com/2012/08/mur6m.png");*/
-    background: url('../assets/twitbackground.jpeg');
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    height: 600px;
-    width: 100%;
-    background-attachment: fixed;
-    font-family: silkscreen;
-    /*padding-top: -200px;*/
+  background: url('../assets/twitbackground.jpeg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 600px;
+  width: 100%;
+  background-attachment: fixed;
+  font-family: silkscreen;
+  /*padding-top: -200px;*/
 }
 
 .aboutheader {
@@ -24,7 +23,6 @@ body {
   background-size: cover;
   margin: 0;
   text-align: center;
-  /*margin-right: -100px;*/
   padding: 0;
   height: 400px;
   width: 100%;
@@ -33,15 +31,15 @@ body {
 }
 
 .chartsheader{
-    background: url("http://i.kinja-img.com/gawker-media/image/upload/sxicodldkbdj6tt2cz1u.jpg");
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    height: 500px;
-    width: 100%;
-    background-attachment: fixed;
-    font-family: silkscreen;
-    padding-top: -200px;
+  background: url("../assets/space-invaders-fight.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 500px;
+  width: 100%;
+  background-attachment: fixed;
+  font-family: silkscreen;
+  padding-top: -200px;
 }
 
 .headertext {
