@@ -15,8 +15,10 @@
           <div class="navbar-header">
             {% if profile %}
             <img src="{{ profile.avatar_url }}" alt="{{ profile.displayName }}">
-            {% endif %}
             <a class="navbar-brand">Smashtag</a>
+            {% else %}
+            <a class="navbar-brand">Smashtag</a>
+            {% endif %}
           </div>
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
@@ -38,6 +40,9 @@
     </nav>
     {% block content %}
     {% endblock %}
+    <footer>
+      
+    </footer>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
