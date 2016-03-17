@@ -13,6 +13,9 @@
 
         <div>
           <div class="navbar-header">
+            {% if profile %}
+            <img src="{{ profile.avatar_url }}" alt="{{ profile.displayName }}">
+            {% endif %}
             <a class="navbar-brand">Smashtag</a>
           </div>
           <ul class="nav navbar-nav">
