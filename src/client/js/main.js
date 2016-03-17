@@ -18,10 +18,11 @@ function getTweets(){
     console.log(response);
     var tweets = response.tweets.length;
     var twitters = response.twitters.length;
+    var testing = response.testing.length;
     $('#test').html('');
     $('#test2').html('');
-    console.log(tweets, twitters);
-    tweetGraph(tweets, twitters);
+    console.log(tweets, twitters, testing);
+    tweetGraph(tweets, twitters, testing);
     // for (var i=0; i<tweets.length; i++) {
     //   $('#test').append('<div class="tweetbox"><h3>'+tweets[i]+'</h3></div>');
     // }
@@ -31,7 +32,7 @@ function getTweets(){
   });
 };
 
-function tweetGraph(tweets, twitters){
+function tweetGraph(tweets, twitters, testing){
   $(function () {
       $('#examplegraph').highcharts({
           chart: {
@@ -77,6 +78,7 @@ function tweetGraph(tweets, twitters){
               data: [
                   ['Yours', tweets],
                   ['Theirs', twitters],
+                  ['Theirs', testing],
 
                   {
                       name: 'Proprietary or Undetectable',
