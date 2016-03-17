@@ -19,6 +19,19 @@ body {
     /*padding-top: -200px;*/
 }
 
+.aboutheader {
+  background: url("../assets/space-invaders.png");
+  background-size: cover;
+  margin: 0;
+  text-align: center;
+  /*margin-right: -100px;*/
+  padding: 0;
+  height: 400px;
+  width: 100%;
+  background-attachment: fixed;
+  font-family: silkscreen;
+}
+
 .chartsheader{
     background: url("https://regmedia.co.uk/2013/03/04/invader.jpg?x=648&y=348&crop=1");
     background-size: cover;
