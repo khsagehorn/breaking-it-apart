@@ -26,19 +26,43 @@ console.log(tweet2);
 var stream;
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Smashtag!', profile: req.user, tweets: tweets1, twitters: tweets2, testing: tweet3 })
+  res.render('index', {
+    title: 'Smashtag!',
+    profile: req.user,
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  })
 });
 
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'What The F*!# Is This?', profile: req.user, tweets: tweets1, twitters: tweets2, testing: tweet3 })
+  res.render('about', {
+    title: 'What The F*!# Is This?',
+    profile: req.user,
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  })
 });
 
 router.get('/savedcharts', function(req, res, next) {
-  res.render('savedcharts', { title: 'Profile', profile: req.user, tweets: tweets1, twitters: tweets2, testing: tweet3 })
+  res.render('savedcharts', {
+    title: 'Profile',
+    profile: req.user,
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  })
 });
 
 router.get('/charts', function(req, res, next) {
-  res.render('charts', { title: 'Get Started!!', profile: req.user, tweets: tweets1, twitters: tweets2, testing: tweet3 })
+  res.render('charts', {
+    title: 'Get Started!!',
+    profile: req.user,
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  })
 });
 
 router.post('/charts', function(req, res, next) {
@@ -50,11 +74,19 @@ router.post('/charts', function(req, res, next) {
 });
 
 router.get('/stoptweets', function(req, res, next){
-  stopTweets();
+  if (stream){
+    stopTweets();
+  } else {
+    res.redirect('/charts');
+  }
 })
 
 router.get('/tweetsjson', function(req, res, next) {
-  res.json({tweets: tweets1, twitters: tweets2, testing: tweet3});
+  res.json({
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  });
 })
 
 function restart(hashtag, hashtag2, hashtag3) {
@@ -97,23 +129,6 @@ function stopTweets() {
     stream.stop();
   	console.log('>stream closed after 100 seconds');
 }
-
-// function restart (hashtag) {
-//   client.currentstream.destroy();
-//   tweets1 = [];
-//   client.stream('statuses/filter', {track: hashtag}, function(stream) {
-//     stream.on('data', function(tweet) {
-//       console.log(tweet.text);
-//       tweets1.push(tweet.text);
-//     });
-//
-//     stream.on('error', function(error) {
-//       throw error;
-//     });
-//     client.currentstream = stream;
-//   });
-// }
-//
 
 
 
