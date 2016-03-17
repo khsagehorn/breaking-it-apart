@@ -1,6 +1,6 @@
 body {
   background-color: grey;
-  font-family: silkscreen;
+  font-family: 'Press Start 2P', cursive;
   text-align: center;
   color: black;
   /*margin: 5px;*/
@@ -14,7 +14,6 @@ body {
   height: 600px;
   width: 100%;
   background-attachment: fixed;
-  font-family: silkscreen;
   /*padding-top: -200px;*/
 }
 
@@ -27,7 +26,6 @@ body {
   height: 400px;
   width: 100%;
   background-attachment: fixed;
-  font-family: silkscreen;
 }
 
 .chartsheader{
@@ -38,13 +36,12 @@ body {
   height: 500px;
   width: 100%;
   background-attachment: fixed;
-  font-family: silkscreen;
   padding-top: -200px;
 }
 
 .headertext {
   padding-top: 80px;
-  font-size: 90px;
+  font-size: 70px;
 }
 
 .navbar {
@@ -54,7 +51,7 @@ body {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    font-family: silkscreen;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .navbar li a, .navbar .navbar-brand {
@@ -74,7 +71,7 @@ input[type=text] {
   padding: 30px;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 button[type = submit] {

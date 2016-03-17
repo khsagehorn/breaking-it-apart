@@ -5,6 +5,7 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
@@ -32,7 +33,7 @@
             {% if profile %}
             <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             {% else %}
-            <li><a href="/auth/twitter"><i class="fa fa-twitter"></i> Twitter Login</a></li>
+            <li><a href="/auth/twitter"><i class="fa fa-twitter" style="font-size:20px;"></i> Twitter Login</a></li>
             {% endif %}
           </ul>
         </div>
@@ -41,7 +42,7 @@
     {% block content %}
     {% endblock %}
     <footer>
-      
+
     </footer>
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
