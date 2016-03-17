@@ -41,7 +41,7 @@ function tweetGraph(tweets, twitters, testing){
               plotShadow: false
           },
           title: {
-              text: 'Yours<br>VS.<br>Theirs',
+              text: '#Hashtags!',
               align: 'center',
               verticalAlign: 'middle',
               y: 40
@@ -73,12 +73,12 @@ function tweetGraph(tweets, twitters, testing){
           },
           series: [{
               type: 'pie',
-              name: 'Javascript vs. Python',
+              name: '#Hashtags',
               innerSize: '50%',
               data: [
-                  ['Yours', tweets],
-                  ['Theirs', twitters],
-                  ['Theirs', testing],
+                  ['#hash1', tweets],
+                  ['#hash2', twitters],
+                  ['#hash3', testing],
 
                   {
                       name: 'Proprietary or Undetectable',
