@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Twitter = require('twitter');
+var knex = require('../../../db/knex');
 var twitterStreamChannels = require('twitter-stream-channels');
 var twit = new twitterStreamChannels({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -45,13 +46,19 @@ router.get('/about', function(req, res, next) {
   })
 });
 
-router.get('/savedcharts', function(req, res, next) {
-  res.render('savedcharts', {
-    title: 'Profile',
-    profile: req.user,
-    tweets: tweets1,
-    twitters: tweets2,
-    testing: tweet3
+router.get('/savedcharts/:id', function(req, res, next) {
+  console.log(req.user);
+  var id = req.user.id;
+  knex('saved_hashes').select().where('user_id', id)
+  .then(function(hashes){
+    res.render('savedcharts', { 
+      profile: req.user, 
+      hashes: hashes
+    });
+  })
+  .catch(function(err){
+    res.status(500);
+    res.render('error', {message: 'There was an error'});
   })
 });
 
@@ -65,12 +72,38 @@ router.get('/charts', function(req, res, next) {
   })
 });
 
+// router.post('/charts', function(req, res, next) {
+//   tweet = req.body.twit;
+//   tweet2 = req.body.twit2;
+//   tweet3 = req.body.twit3;
+//   restart(tweet, tweet2, tweet3);
+//   // res.redirect('/charts')
+// });
+
 router.post('/charts', function(req, res, next) {
   tweet = req.body.twit;
   tweet2 = req.body.twit2;
   tweet3 = req.body.twit3;
+
+  if (req.user){
+    console.log('test');
+    knex('saved_hashes').insert({
+      hash1: req.body.twit,
+      hash2: req.body.twit2,
+      hash3: req.body.twit3,
+      user_id: req.user.id
+      })
+     .then(function(data){
+      console.log(data);
+     })
+     .catch(function(err){
+      console.log(err)
+     })
+    }
+
   restart(tweet, tweet2, tweet3);
-  // res.redirect('/charts')
+
+  res.redirect('/charts');
 });
 
 router.get('/stoptweets', function(req, res, next){
