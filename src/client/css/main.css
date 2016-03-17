@@ -33,11 +33,11 @@ body {
 }
 
 .chartsheader{
-    background: url("https://regmedia.co.uk/2013/03/04/invader.jpg?x=648&y=348&crop=1");
+    background: url("http://i.kinja-img.com/gawker-media/image/upload/sxicodldkbdj6tt2cz1u.jpg");
     background-size: cover;
     margin: 0;
     padding: 0;
-    height: 600px;
+    height: 500px;
     width: 100%;
     background-attachment: fixed;
     font-family: silkscreen;
@@ -70,6 +70,13 @@ body {
 .navbar-nav li.active a {
     color: #fff !important;
     background-color:#29292c !important;
+}
+
+input[type=text] {
+  padding: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .tweetbox {

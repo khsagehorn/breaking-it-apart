@@ -23,25 +23,22 @@
      </div>
    </div>
  {% endif %}
-<section>
+<section class="col-xs-5">
    <form method="post">
-     <div class="row">
-       <div class="col-xs-4">
-          <input id="twit" type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
-        </div>
-        <div class="col-xs-4">
-          <p style="text-align: center;">VS.</p>
-        </div>
-        <div class="col-xs-4">
-          <input id="twit2" type="text" class="form-control" name="twit2" placeholder="Enter In Hashtag">
-        </div>
-      </div>
+     <div class="column">
+      <input id="twit" type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
+      <p style="text-align: center;">VS.</p>
+      <input id="twit2" type="text" class="form-control" name="twit2" placeholder="Enter In Hashtag">
+      <p style="text-align: center;">VS.</p>
+      <input id="twit3" type="text" class="form-control" name="twit3" placeholder="Enter In Hashtag">
       <button type="submit" class="btn btn-success" id="submit_form">Submit</button>
       <a href="/stoptweets" onclick="stopTimer()" class="btn btn-danger" id="stop_tweet">Stop Tweet Stream</a>
-    </form>
+    </div>
+  </form>
 </section>
-
-  <div id="examplegraph" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto"></div>
+  <div class="col-xs-6 column">
+    <div id="examplegraph" style="min-width: 310px; height: 300px; max-width: 500px; margin: 0 auto; margin-top: 10px;"></div>
+  </div>
 
 </div>
  </div>
