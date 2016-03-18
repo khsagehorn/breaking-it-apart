@@ -22,7 +22,8 @@ function getTweets(){
     $('#test').html('');
     $('#test2').html('');
     console.log(tweets, twitters, testing);
-    tweetGraph(tweets, twitters, testing);
+    tweetGraph(tweets, twitters, testing, response.channels);
+    randomTweets(response);
     // for (var i=0; i<tweets.length; i++) {
     //   $('#test').append('<div class="tweetbox"><h3>'+tweets[i]+'</h3></div>');
     // }
@@ -32,7 +33,7 @@ function getTweets(){
   });
 };
 
-function tweetGraph(tweets, twitters, testing){
+function tweetGraph(tweets, twitters, testing, channels){
   $(function () {
       $('#examplegraph').highcharts({
           chart: {
@@ -41,7 +42,7 @@ function tweetGraph(tweets, twitters, testing){
               plotShadow: false
           },
           title: {
-              text: '#Hashtags!',
+              text: '#'+channels.stream1+' vs.<br>#'+channels.stream2+' vs.<br>#'+channels.stream3,
               align: 'center',
               verticalAlign: 'middle',
               y: 40
@@ -76,9 +77,9 @@ function tweetGraph(tweets, twitters, testing){
               name: '#Hashtags',
               innerSize: '50%',
               data: [
-                  ['#hash1', tweets],
-                  ['#hash2', twitters],
-                  ['#hash3', testing],
+                  ['#'+channels.stream1, tweets],
+                  ['#'+channels.stream2, twitters],
+                  ['#'+channels.stream3, testing],
 
                   {
                       name: 'Proprietary or Undetectable',
@@ -92,3 +93,17 @@ function tweetGraph(tweets, twitters, testing){
       });
     });
   };
+
+function randomTweets(input) {
+  console.log('input', input);
+  var random1 = input.tweets[Math.floor(Math.random()*input.tweets.length)] || '';
+  var random2 = input.twitters[Math.floor(Math.random()*input.twitters.length)] || '';
+  var random3 = input.testing[Math.floor(Math.random()*input.testing.length)] || '';
+  console.log('random1', random1);
+  console.log('random2', random2);
+  console.log('random3', random3);
+  $('#tweets').html('');
+  $('#tweets').append('<div class="col-xs-4"><h3>#'+input.channels.stream1+'</h3><p class="tweetbox">'+random1+'</p></div>');
+  $('#tweets').append('<div class="col-xs-4"><h3>#'+input.channels.stream2+'</h3><p class="tweetbox">'+random2+'</p></div>');
+  $('#tweets').append('<div class="col-xs-4"><h3>#'+input.channels.stream3+'</h3><p class="tweetbox">'+random3+'</p></div>');
+}

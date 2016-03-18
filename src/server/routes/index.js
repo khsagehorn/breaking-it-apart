@@ -51,8 +51,8 @@ router.get('/savedcharts/:id', function(req, res, next) {
   var id = req.user.id;
   knex('saved_hashes').select().where('user_id', id)
   .then(function(hashes){
-    res.render('savedcharts', { 
-      profile: req.user, 
+    res.render('savedcharts', {
+      profile: req.user,
       hashes: hashes
     });
   })
@@ -118,7 +118,8 @@ router.get('/tweetsjson', function(req, res, next) {
   res.json({
     tweets: tweets1,
     twitters: tweets2,
-    testing: tweet3
+    testing: tweets3,
+    channels: channels
   });
 })
 
