@@ -4,31 +4,23 @@
 
 
 {% block content %}
+  <section style="margin-top: 80px">
+    <h1>Your Saved Searches</h1>
 
-  <div class="container">
-
-    <form action="/upload" method="POST" style="margin: 80px;" enctype="multipart/form-data">
-      <div class="form-group">
-       <label>Upload Image</label>
-       <input type="file">
+    <div class="container">
+      <div class='row'>
+        <div class="row col-xs-4" id=>
+          <img class="img-responsive" src="../assets/chart.jpeg" alt="">
+        </div>  
+        <div  class="row col-xs-4" id="">
+          <img class="img-responsive" src="../assets/chart2.jpeg" alt="">
+        </div>  
+        <div class="row col-xs-4" id="">
+          <img class="img-responsive" src="../assets/chart3.png" alt="">
+        </div>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
 
-
-    <div class='row'>
-      <div class="row col-xs-4" id=>
-        <img class="img-responsive" src="../assets/chart.jpeg" alt="">
-      </div>  
-      <div  class="row col-xs-4" id="">
-        <img class="img-responsive" src="../assets/chart.jpeg2" alt="">
-      </div>  
-      <div class="row col-xs-4" id="">
-        <img class="img-responsive" src="../assets/chart.jpeg3" alt="">
-      </div>
     </div>
-
-  </div>
-
+  </section>
 
 {% endblock %}
