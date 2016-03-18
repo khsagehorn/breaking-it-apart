@@ -114,3 +114,7 @@ section {
 .total {
   line-height: 550%;
 }
+
+.img-responsive {
+  margin:20px;
+}
