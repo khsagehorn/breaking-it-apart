@@ -105,3 +105,12 @@ section {
   margin: 5px;
   padding: 5px;
 }
+
+#examplegraph {
+  float: right;
+  padding: 0px;
+}
+
+.total {
+  line-height: 550%;
+}

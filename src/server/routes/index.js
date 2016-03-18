@@ -11,9 +11,9 @@ var twit = new twitterStreamChannels({
   });
 
 var channels = {
-  'stream1': 'javascript',
-  'stream2': 'css',
-  'stream3': 'python',
+  'stream1': '',
+  'stream2': '',
+  'stream3': '',
 };
 
 var tweets1 = [];
@@ -51,8 +51,8 @@ router.get('/savedcharts/:id', function(req, res, next) {
   var id = req.user.id;
   knex('saved_hashes').select().where('user_id', id)
   .then(function(hashes){
-    res.render('savedcharts', { 
-      profile: req.user, 
+    res.render('savedcharts', {
+      profile: req.user,
       hashes: hashes
     });
   })
@@ -118,7 +118,8 @@ router.get('/tweetsjson', function(req, res, next) {
   res.json({
     tweets: tweets1,
     twitters: tweets2,
-    testing: tweet3
+    testing: tweets3,
+    channels: channels
   });
 })
 
@@ -160,7 +161,7 @@ function restart(hashtag, hashtag2, hashtag3) {
 
 function stopTweets() {
     stream.stop();
-  	console.log('>stream closed after 100 seconds');
+  	console.log('>stream closed');
 }
 
 
