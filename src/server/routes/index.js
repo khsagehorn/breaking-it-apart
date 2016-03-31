@@ -80,7 +80,7 @@ router.get('/charts', function(req, res, next) {
 //   // res.redirect('/charts')
 // });
 
-router.post('/charts', function(req, res, next) {
+router.post('/stream', function(req, res, next) {
   tweet = req.body.twit;
   tweet2 = req.body.twit2;
   tweet3 = req.body.twit3;

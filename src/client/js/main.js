@@ -2,12 +2,33 @@
 
 $(document).on('ready', function() {
   console.log('sanity check!');
-  window.tweetTimer = setInterval(getTweets, 2000);
+
 });
 
+$('#submit_form').on('click', function(e){
+  e.preventDefault();
+  var payload = {
+    twit: $('#twit').val(),
+    twit2: $('#twit2').val(),
+    twit3: $('#twit3').val()
+  };
+  console.log('payload', payload);
+  $.ajax({
+    method: 'POST',
+    url: '/stream',
+    data: payload
+  }).then(function(response) {
+    startTimer();
+  });
+});
+
+function startTimer() {
+  window.tweetTimer = setInterval(getTweets, 2000);
+}
+
 function stopTimer(){
-  clearInterval(tweetTimer);
-};
+  clearInterval(window.tweetTimer);
+}
 
 
 function getTweets(){
@@ -34,7 +55,7 @@ function getTweets(){
     //   $('#test2').append('<div class="tweetbox"><h3>'+twitters[j]+'</h3></div>');
     // }
   });
-};
+}
 
 function tweetGraph(tweets, twitters, testing, channels){
   $(function () {
@@ -95,7 +116,7 @@ function tweetGraph(tweets, twitters, testing, channels){
           }]
       });
     });
-  };
+  }
 
 function randomTweets(input) {
   console.log('input', input);
