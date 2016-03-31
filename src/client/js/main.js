@@ -19,8 +19,11 @@ function getTweets(){
     var tweets = response.tweets.length;
     var twitters = response.twitters.length;
     var testing = response.testing.length;
-    $('#test').html('');
-    $('#test2').html('');
+    var total = tweets+twitters+testing;
+    $('#tweet1').html(tweets);
+    $('#tweet2').html(twitters);
+    $('#tweet3').html(testing);
+    $('#total').html('Total: '+total);
     console.log(tweets, twitters, testing);
     tweetGraph(tweets, twitters, testing, response.channels);
     randomTweets(response);

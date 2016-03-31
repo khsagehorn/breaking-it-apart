@@ -11,9 +11,9 @@ var twit = new twitterStreamChannels({
   });
 
 var channels = {
-  'stream1': 'javascript',
-  'stream2': 'css',
-  'stream3': 'python',
+  'stream1': '',
+  'stream2': '',
+  'stream3': '',
 };
 
 var tweets1 = [];
@@ -161,7 +161,7 @@ function restart(hashtag, hashtag2, hashtag3) {
 
 function stopTweets() {
     stream.stop();
-  	console.log('>stream closed after 100 seconds');
+  	console.log('>stream closed');
 }
 
 
