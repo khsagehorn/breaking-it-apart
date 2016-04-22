@@ -27,8 +27,8 @@
             <!-- <li><a href="/">Home</a></li> -->
             <li><a href="/about">What Is This?</a></li>
             <li><a href="/charts">Get Started!</a></li>
-            {% if profile %}
             <li><a href="/business">More Options!</a><li>
+            {% if profile %}
             <li><a href="/savedcharts/{{ profile.id }}">Profile</a></li>
             {% endif %}
           </ul>
