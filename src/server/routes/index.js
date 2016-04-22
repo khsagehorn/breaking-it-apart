@@ -36,6 +36,16 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/business', function(req, res, next) {
+  res.render('business', {
+    title: 'More Options!',
+    profile: req.user,
+    tweets: tweets1,
+    twitters: tweets2,
+    testing: tweet3
+  })
+});
+
 router.get('/about', function(req, res, next) {
   res.render('about', {
     title: 'What The F*!# Is This?',
