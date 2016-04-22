@@ -9,7 +9,36 @@
     <p>{{ title }}</p>
   </div>
   <header class="aboutheader"></header>
+  {% if profile %}
+    <div class="row">
+      <div class="col-xs-4">
+        <img style="float: right;" src="{{ profile.avatar_url }}" alt="{{ profile.display_name }}">
+      </div>
 
-  
+      <div class="col-xs-8">
+        <h3>Welcome {{ profile.display_name }}</h3>
+      </div>
+    </div>
+  {% endif %}
+    <hr>
+    <form>
+      <div class="row">
+        <div class="col-xs-4">
+          <input id="twit" type="text" class="form-control" name="twit" placeholder="Enter In Hashtag">
+          <!-- <p style="text-align: center;">VS.</p> -->
+        </div>
+         <div class="col-xs-4">
+           <input id="twit2" type="text" class="form-control col-xs-3" name="twit2" placeholder="Enter In Hashtag">
+           <!-- <p style="text-align: center;">VS.</p> -->
+         </div>
+         <div class="col-xs-4">
+           <input id="twit3" type="text" class="form-control col-xs-3" name="twit3" placeholder="Enter In Hashtag">
+         </div>
+     </div>
+     <div class="row">
+       <button name="submit" id="submit_form">Submit</button>
+       <a href="/stoptweets" onclick="stopTimer()" id="stop_tweet">Stop Tweets</a>
+     </div>
+   </form>
 
 {% endblock %}
