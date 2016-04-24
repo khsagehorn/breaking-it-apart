@@ -16,16 +16,18 @@ var channels = {
   'stream1': '',
   'stream2': '',
   'stream3': '',
+  'stream4': ''
 };
 
 var tweets1 = [];
 var tweets2 = [];
 var tweets3 = [];
+var sentimentTweets = [];
 var tweet = channels.stream1;
 var tweet2 = channels.stream2;
 var tweet3 = channels.stream3;
-console.log(tweet);
-console.log(tweet2);
+var sentimentTweet = channels.stream4;
+console.log(sentimentTweets);
 var stream;
 
 router.get('/', function(req, res, next) {
@@ -49,19 +51,11 @@ router.get('/business', function(req, res, next) {
 });
 
 router.post('/sentiment', function(req, res) {
-  var sampleText = req.body.text;
-  request({
-    method: 'GET',
-    url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?text='
-          + sampleText + '&apikey='+alchemyKey+'&outputMode=json'
-  }, function(err, response) {
-    if(err){
-      console.log('err', err);
-      res.json(err);
-    } else {
-      res.json(response);
-    }
-  })
+  console.log('hitting sentiment route', req.body.hashtag);
+  sentimentTweet = req.body.hashtag;
+  sentimentStream(sentimentTweet);
+  console.log('started stream');
+  res.json({message:'Started sentiment stream.'});
 });
 
 router.get('/about', function(req, res, next) {
@@ -151,6 +145,13 @@ router.get('/tweetsjson', function(req, res, next) {
   });
 })
 
+router.get('/sentimentTweets', function(req, res, next) {
+  res.json({
+    sentimentTweets: sentimentTweets,
+    hashtag: channels.stream4
+  });
+})
+
 function restart(hashtag, hashtag2, hashtag3) {
   if(stream) {
     stream.stop();
@@ -192,6 +193,36 @@ function stopTweets() {
   	console.log('>stream closed');
 }
 
-
+function sentimentStream(hashtag) {
+  console.log('starting stream', hashtag);
+  sentimentTweets = [];
+  channels = {
+    'stream4': hashtag
+  }
+  stream = twit.streamChannels({track: channels});
+  stream.on('channels/stream4', function(tweet) {
+    if(tweet.text){
+      request({
+        method: 'GET',
+        url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?text='
+              + tweet.text + '&apikey='+alchemyKey+'&outputMode=json'
+      }, function(err, response) {
+        if(err){
+          console.log('err', err);
+        } else {
+          console.log(response.body);
+          var body = JSON.parse(response.body);
+          if(body.status !== "ERROR"){
+            sentimentTweets.push({
+              tweet: tweet.text,
+              sentiment: body.docSentiment
+            });
+          }
+        }
+      });
+    }
+    console.log(tweet.text);
+  })
+}
 
 module.exports = router;
