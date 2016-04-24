@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Twitter = require('twitter');
 var knex = require('../../../db/knex');
+var request = require('request');
+var alchemyKey = process.env.ALCHEMY_API;
 var twitterStreamChannels = require('twitter-stream-channels');
 var twit = new twitterStreamChannels({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -43,6 +45,22 @@ router.get('/business', function(req, res, next) {
     tweets: tweets1,
     twitters: tweets2,
     testing: tweet3
+  })
+});
+
+router.post('/sentiment', function(req, res) {
+  var sampleText = req.body.text;
+  request({
+    method: 'GET',
+    url: 'http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?text='
+          + sampleText + '&apikey='+alchemyKey+'&outputMode=json'
+  }, function(err, response) {
+    if(err){
+      console.log('err', err);
+      res.json(err);
+    } else {
+      res.json(response);
+    }
   })
 });
 
