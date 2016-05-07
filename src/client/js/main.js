@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-  console.log('sanity check!');
+  // console.log('sanity check!');
 });
 
 $('#submit_form').on('click', function(e){
