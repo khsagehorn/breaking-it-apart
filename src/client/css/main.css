@@ -28,7 +28,7 @@ body {
   background-attachment: fixed;
 }
 
-.chartsheader{
+/*.chartsheader{
   background: url("../assets/space-invaders-fight.jpg");
   background-size: cover;
   margin: 0;
@@ -37,11 +37,12 @@ body {
   width: 100%;
   background-attachment: fixed;
   padding-top: -200px;
-}
+}*/
 
 .headertext {
   padding-top: 80px;
   font-size: 70px;
+  text-shadow: 4px 0px 4px orange;
 }
 
 .navbar {
