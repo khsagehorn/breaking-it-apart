@@ -18,7 +18,7 @@ function startAnalysis(){
     url:'/sentiment',
     data: {
       hashtag: $('#sentiment').val()
-    }
+    } 
   }).then(function(response) {
     console.log('start time');
     startAnalysisTimer();
