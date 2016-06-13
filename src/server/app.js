@@ -60,7 +60,7 @@ passport.use(new TwitterStrategy({
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL:
   // "http://localhost:3000/auth/twitter/callback",
-    "https://ancient-wave-14103.herokuapp.com//auth/twitter/callback",
+    "https://ancient-wave-14103.herokuapp.com/auth/twitter/callback",
   state: true
 }, function(accessToken, refreshToken, profile, done) {
   knex('users')
