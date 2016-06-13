@@ -61,6 +61,7 @@ passport.use(new TwitterStrategy({
   callbackURL: 
   // "http://localhost:3000/auth/twitter/callback",
     "https://breaking-it-apart.herokuapp.com/auth/twitter/callback",
+
   state: true
 }, function(accessToken, refreshToken, profile, done) {
   knex('users')
