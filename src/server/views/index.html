@@ -7,48 +7,26 @@
 <div class="headertext">
   <p>{{ title }}</p>
 </div>
-<header class="chartsheader"></header>
+<header class="indexheader"></header>
 
-<div class="container">
+  <div class="container">
 
- {% if profile %}
-   <div class="row">
-     <div class="col-xs-4">
-       <img style="float: right;" src="{{ profile.avatar_url }}" alt="{{ profile.display_name }}">
-     </div>
-
-     <div class="col-xs-8">
-       <h3>Welcome {{ profile.display_name }}</h3>
-     </div>
-   </div>
- {% endif %}
-   <hr>
-   <div class="row">
-    <section class="col-xs-5">
-       <form>
-         <div class="column">
-          <input id="twit" type="text" class="form-control" name="twit" placeholder="Enter Hashtag">
-          <p style="text-align: center;">VS.</p>
-          <input id="twit2" type="text" class="form-control" name="twit2" placeholder="Enter Hashtag">
-          <p style="text-align: center;">VS.</p>
-          <input id="twit3" type="text" class="form-control" name="twit3" placeholder="Enter Hashtag">
-          <button name="submit" id="submit_form">Submit</button>
-          <a href="/stoptweets" onclick="stopTimer()" id="stop_tweet">Stop</a>
+ <!-- <div id="examplegraph"></div> -->
+ <section>
+    <p style="font-size: 40px;">Graph Out Your Competition With {{ title }}</p>
+      <div class="row">
+        <div class="col-xs-4">
+          <img src="../assets/tweetbird.jpg" style="border-radius: 10px;">
         </div>
-      </form>
-    </section>
-    <div class="col-xs-2">
-      <p class="total" id="tweet1">0</p><br>
-      <p class="total" id="tweet2">0</p><br>
-      <p class="total" id="tweet3">0</p>
-      <p class="total" id="total">0</p>
-    </div>
-    <div class="col-xs-4 column">
-      <div id="examplegraph" style="min-width: 310px; height: 300px; max-width: 500px; margin: 0 auto; margin-top: 10px;"></div>
-    </div>
-  </div>
-  <div class="row" id="tweets"></div>
-</div>
+        <div class="col-xs-4" style="padding-top: 70px;">
+          <h3>See how your tweets match up against each other!!</h3>
+        </div>
+        <div class="col-xs-4">
+          <img src="../assets/chart.jpeg" style="min-width: 310px; height: 350px; max-width: 370px; margin: 0 auto; border-radius: 10px;">
+        </div>
+      </div>
+  </section>
+
+ </div>
 
 {% endblock %}
-
