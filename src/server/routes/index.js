@@ -190,7 +190,7 @@ function restart(hashtag, hashtag2, hashtag3) {
 
 function stopTweets() {
     stream.stop();
-  	console.log('>stream closed');
+    console.log('>stream closed');
 }
 
 function sentimentStream(hashtag) {
