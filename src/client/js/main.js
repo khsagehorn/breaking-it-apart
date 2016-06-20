@@ -63,7 +63,7 @@ function tweetGraph(tweets, twitters, testing, channels){
               plotShadow: false
           },
           title: {
-              text: '#'+channels.stream1+' vs.<br>#'+channels.stream2+' vs.<br>#'+channels.stream3,
+              text: channels.stream1+' vs.<br>'+channels.stream2+' vs.<br>'+channels.stream3,
               align: 'center',
               verticalAlign: 'middle',
               y: 40
@@ -98,9 +98,9 @@ function tweetGraph(tweets, twitters, testing, channels){
               name: '#Hashtags',
               innerSize: '50%',
               data: [
-                  ['#'+channels.stream1, tweets],
-                  ['#'+channels.stream2, twitters],
-                  ['#'+channels.stream3, testing],
+                  [channels.stream1, tweets],
+                  [channels.stream2, twitters],
+                  [channels.stream3, testing],
 
                   {
                       name: 'Proprietary or Undetectable',
