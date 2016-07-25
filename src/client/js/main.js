@@ -42,7 +42,6 @@ function getTweets(){
     $('#tweet2').html(twitters);
     $('#tweet3').html(testing);
     $('#total').html('Total: '+total);
-    console.log(tweets, twitters, testing);
     tweetGraph(tweets, twitters, testing, response.channels);
     randomTweets(response);
     // for (var i=0; i<tweets.length; i++) {
@@ -116,13 +115,11 @@ function tweetGraph(tweets, twitters, testing, channels){
   }
 
 function randomTweets(input) {
-  console.log('input', input);
+
   var random1 = input.tweets[Math.floor(Math.random()*input.tweets.length)] || '';
   var random2 = input.twitters[Math.floor(Math.random()*input.twitters.length)] || '';
   var random3 = input.testing[Math.floor(Math.random()*input.testing.length)] || '';
-  console.log('random1', random1);
-  console.log('random2', random2);
-  console.log('random3', random3);
+
   $('#tweets').html('');
   $('#tweets').append('<div class="col-xs-4"><h3>#'+input.channels.stream1+'</h3><p class="tweetbox">'+random1+'</p></div>');
   $('#tweets').append('<div class="col-xs-4"><h3>#'+input.channels.stream2+'</h3><p class="tweetbox">'+random2+'</p></div>');
