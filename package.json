@@ -2,6 +2,10 @@
   "name": "_example",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "4.2.4",
+    "npm": "3.5.3"
+  },
   "scripts": {
     "start": "node ./src/server/bin/www"
   },
